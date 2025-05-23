@@ -1,0 +1,58 @@
+{
+    "dataSetName": "Payments Feature",
+    "data": {
+        "events": [
+            {
+                "name": "registration_failed",
+                "id": 14803,
+                "uOwnAssetID": "43b3603b-f714-4675-9659-eb2e59e9950c",
+                "elkEnabled": true,
+                "tier": 3,
+                "failSlaCheck": false,
+                "failTierCheck": false,
+                "tags": [
+                    {
+                        "id": 5675,
+                        "name": "UBERLITE",
+                        "__typename": "EventTag"
+                    },
+                    {
+                        "id": 30149,
+                        "name": "extend_expiry_jl",
+                        "__typename": "EventTag"
+                    },
+                    {
+                        "id": 35145,
+                        "name": "extend_expiry_jl_2021_11",
+                        "__typename": "EventTag"
+                    }
+                ],
+                "analyticUUIDs": [],
+                "__typename": "EventDetail"
+            },
+            {
+                "name": "car_trawler_web_screen_impression",
+                "id": 32713,
+                "uOwnAssetID": "43b3603b-f714-4675-9659-eb2e59e9950c",
+                "elkEnabled": true,
+                "tier": 3,
+                "failSlaCheck": false,
+                "failTierCheck": false,
+                "tags": [],
+                "analyticUUIDs": [
+                    {
+                        "uuid": "049fd722-3261",
+                        "platform": "android",
+                        "__typename": "AnalyticUUID"
+                    },
+                    {
+                        "uuid": "1EF2259F-4358",
+                        "platform": "ios",
+                        "__typename": "AnalyticUUID"
+                    }
+                ],
+                "__typename": "EventDetail"
+            }
+        ]
+    }
+}

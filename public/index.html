@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events API Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h1, h2, h3 {
+      color: #333;
+    }
+    pre {
+      background-color: #f5f5f5;
+      padding: 15px;
+      border-radius: 5px;
+      overflow: auto;
+      max-height: 400px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 5px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    button.delete {
+      background-color: #f44336;
+    }
+    button.delete:hover {
+      background-color: #d32f2f;
+    }
+    button.edit {
+      background-color: #2196F3;
+    }
+    button.edit:hover {
+      background-color: #1976D2;
+    }
+    .section {
+      margin-bottom: 30px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    label {
+      font-weight: bold;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .hidden {
+      display: none;
+    }
+    .tabs {
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+      border-radius: 5px 5px 0 0;
+    }
+    .tabs button {
+      background-color: inherit;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      color: #333;
+    }
+    .tabs button:hover {
+      background-color: #ddd;
+    }
+    .tabs button.active {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .tab-content {
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-top: none;
+      border-radius: 0 0 5px 5px;
+    }
+    #notification {
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      display: none;
+    }
+    .success {
+      background-color: #dff0d8;
+      color: #3c763d;
+      border: 1px solid #d6e9c6;
+    }
+    .error {
+      background-color: #f2dede;
+      color: #a94442;
+      border: 1px solid #ebccd1;
+    }
+  </style>
+</head>
+<body>
+  <h1>Events API Dashboard</h1>
+
+  <div id="notification"></div>
+
+  <div class="tabs">
+    <button class="tab-link active" onclick="openTab(event, 'browse-tab')">Browse Datasets</button>
+    <button class="tab-link" onclick="openTab(event, 'create-tab')">Create Dataset</button>
+    <button class="tab-link" onclick="openTab(event, 'manage-tab')">Manage Datasets</button>
+  </div>
+
+  <!-- Browse Datasets Tab -->
+  <div id="browse-tab" class="tab-content">
+    <div class="section">
+      <h2>API Endpoints</h2>
+      <button id="getDatasetListBtn">Get Dataset List</button>
+      <button id="getAllDatasetsBtn">Get All Datasets</button>
+      <select id="datasetSelector">
+        <option value="">Select a dataset...</option>
+      </select>
+      <button id="getSelectedDatasetBtn" disabled>Get Selected Dataset</button>
+    </div>
+
+    <div class="section">
+      <h2>Response:</h2>
+      <pre id="responseOutput">Select an action above to make an API request</pre>
+    </div>
+  </div>
+
+  <!-- Create Dataset Tab -->
+  <div id="create-tab" class="tab-content" style="display: none;">
+    <div class="section">
+      <h2>Create New Dataset</h2>
+      <form id="createDatasetForm">
+        <div class="form-group">
+          <label for="datasetName">Dataset Name:</label>
+          <input type="text" id="datasetName" name="datasetName" required placeholder="e.g., User Onboarding">
+        </div>
+        <div class="form-group">
+          <label for="datasetDescription">Description:</label>
+          <textarea id="datasetDescription" name="datasetDescription" required placeholder="Brief description of the dataset"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="eventsData">Initial Events Data (Optional):</label>
+          <textarea id="eventsData" name="eventsData" rows="10" placeholder='{"events": []}&#10;Leave empty to create with no events'></textarea>
+        </div>
+        <button type="submit">Create Dataset</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Manage Datasets Tab -->
+  <div id="manage-tab" class="tab-content" style="display: none;">
+    <div class="section">
+      <h2>Manage Datasets</h2>
+      <button id="refreshDatasetsBtn">Refresh List</button>
+      <div id="datasetsTableContainer">
+        <table id="datasetsTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Filename</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="datasetsTableBody">
+            <!-- Datasets will be loaded here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Edit Dataset Modal -->
+    <div id="editDatasetModal" class="section hidden">
+      <h2>Edit Dataset</h2>
+      <form id="editDatasetForm">
+        <input type="hidden" id="editDatasetOriginalName">
+        <div class="form-group">
+          <label for="editDatasetName">Dataset Name:</label>
+          <input type="text" id="editDatasetName" name="editDatasetName" required>
+        </div>
+        <div class="form-group">
+          <label for="editDatasetDescription">Description:</label>
+          <textarea id="editDatasetDescription" name="editDatasetDescription" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="editEventsData">Events Data:</label>
+          <textarea id="editEventsData" name="editEventsData" rows="10"></textarea>
+        </div>
+        <button type="submit">Save Changes</button>
+        <button type="button" onclick="hideEditModal()">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Global variables
+    let activeDatasets = [];
+
+    // DOM elements
+    const datasetSelector = document.getElementById('datasetSelector');
+    const notification = document.getElementById('notification');
+
+    // Utility functions
+    function showNotification(message, isSuccess = true) {
+      notification.textContent = message;
+      notification.className = isSuccess ? 'success' : 'error';
+      notification.style.display = 'block';
+
+      setTimeout(() => {
+        notification.style.display = 'none';
+      }, 5000);
+    }
+
+    function openTab(evt, tabName) {
+      const tabContents = document.getElementsByClassName('tab-content');
+      for (let i = 0; i < tabContents.length; i++) {
+        tabContents[i].style.display = 'none';
+      }
+
+      const tabLinks = document.getElementsByClassName('tab-link');
+      for (let i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].className = tabLinks[i].className.replace(' active', '');
+      }
+
+      document.getElementById(tabName).style.display = 'block';
+      evt.currentTarget.className += ' active';
+
+      if (tabName === 'manage-tab') {
+        loadDatasetsTable();
+      }
+    }
+
+    // API functions
+    async function fetchDatasets() {
+      try {
+        const response = await fetch('/api/datasets');
+        if (!response.ok) {
+          throw new Error(`Error ${response.status}: ${response.statusText}`);
+        }
+        return await response.json();
+      } catch (error) {
+        console.error('Error fetching datasets:', error);
+        showNotification(`Error fetching datasets: ${error.message}`, false);
+        return [];
+      }
+    }
+
+    async function fetchDataset(name) {
+      try {
+        const response = await fetch(`/api/datasets/${name}`);
+        if (!response.ok) {
+          throw new Error(`Error ${response.status}: ${response.statusText}`);
+        }
+        return await response.json();
+      } catch (error) {
+        console.error(`Error fetching dataset "${name}":`, error);
+        showNotification(`Error fetching dataset: ${error.message}`, false);
+        return null;
+      }
+    }
+
+    async function createDataset(name, description, eventsData) {
+      try {
+        let data = { events: [] };
+        if (eventsData) {
+          try {
+            data = JSON.parse(eventsData);
+          } catch (parseError) {
+            throw new Error(`Invalid JSON in events data: ${parseError.message}`);
+          }
+        }
+
+        const response = await fetch('/api/datasets', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name,
+            description,
+            data
+          })
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          throw new Error(result.error || `Error ${response.status}: ${response.statusText}`);
+        }
+
+        return result;
+      } catch (error) {
+        console.error('Error creating dataset:', error);
+        throw error;
+      }
+    }
+
+    async function updateDataset(originalName, name, description, eventsData) {
+      try {
+        const updateData = {};
+
+        if (name) updateData.name = name;
+        if (description) updateData.description = description;
+
+        if (eventsData) {
+          try {
+            updateData.data = JSON.parse(eventsData);
+          } catch (parseError) {
+            throw new Error(`Invalid JSON in events data: ${parseError.message}`);
+          }
+        }
+
+        const response = await fetch(`/api/datasets/${originalName}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(updateData)
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          throw new Error(result.error || `Error ${response.status}: ${response.statusText}`);
+        }
+
+        return result;
+      } catch (error) {
+        console.error('Error updating dataset:', error);
+        throw error;
+      }
+    }
+
+    async function deleteDataset(name) {
+      try {
+        const response = await fetch(`/api/datasets/${name}`, {
+          method: 'DELETE'
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          throw new Error(result.error || `Error ${response.status}: ${response.statusText}`);
+        }
+
+        return result;
+      } catch (error) {
+        console.error('Error deleting dataset:', error);
+        throw error;
+      }
+    }
+
+    // UI initialization and event handlers
+    async function initializeDatasetsDropdown() {
+      try {
+        activeDatasets = await fetchDatasets();
+
+        // Clear existing options except the first one
+        while (datasetSelector.options.length > 1) {
+          datasetSelector.remove(1);
+        }
+
+        // Add dataset options
+        activeDatasets.forEach(dataset => {
+          const option = document.createElement('option');
+          option.value = dataset.name;
+          option.textContent = dataset.name;
+          datasetSelector.appendChild(option);
+        });
+
+        // Enable/disable the button based on selection
+        document.getElementById('getSelectedDatasetBtn').disabled = datasetSelector.value === '';
+      } catch (error) {
+        console.error('Error initializing datasets dropdown:', error);
+        showNotification(`Error loading datasets: ${error.message}`, false);
+      }
+    }
+
+    async function loadDatasetsTable() {
+      try {
+        const datasets = await fetchDatasets();
+        const tableBody = document.getElementById('datasetsTableBody');
+
+        // Clear existing rows
+        tableBody.innerHTML = '';
+
+        if (datasets.length === 0) {
+          const row = tableBody.insertRow();
+          const cell = row.insertCell();
+          cell.colSpan = 4;
+          cell.textContent = 'No datasets available';
+          return;
+        }
+
+        // Add dataset rows
+        datasets.forEach(dataset => {
+          const row = tableBody.insertRow();
+
+          const nameCell = row.insertCell();
+          nameCell.textContent = dataset.name;
+
+          const descCell = row.insertCell();
+          descCell.textContent = dataset.description;
+
+          const fileCell = row.insertCell();
+          fileCell.textContent = dataset.filename;
+
+          const actionsCell = row.insertCell();
+
+          const editBtn = document.createElement('button');
+          editBtn.textContent = 'Edit';
+          editBtn.className = 'edit';
+          editBtn.onclick = () => showEditModal(dataset.name);
+          actionsCell.appendChild(editBtn);
+
+          const deleteBtn = document.createElement('button');
+          deleteBtn.textContent = 'Delete';
+          deleteBtn.className = 'delete';
+          deleteBtn.onclick = () => confirmDeleteDataset(dataset.name);
+          actionsCell.appendChild(deleteBtn);
+        });
+      } catch (error) {
+        console.error('Error loading datasets table:', error);
+        showNotification(`Error loading datasets table: ${error.message}`, false);
+      }
+    }
+
+    async function showEditModal(datasetName) {
+      try {
+        const dataset = await fetchDataset(datasetName);
+        if (!dataset) {
+          showNotification(`Could not load dataset: ${datasetName}`, false);
+          return;
+        }
+
+        // Find the dataset in registry
+        const datasetInfo = activeDatasets.find(d => d.name === datasetName);
+
+        // Fill the form fields
+        document.getElementById('editDatasetOriginalName').value = datasetName;
+        document.getElementById('editDatasetName').value = datasetName;
+        document.getElementById('editDatasetDescription').value = datasetInfo.description;
+        document.getElementById('editEventsData').value = JSON.stringify(dataset.data, null, 2);
+
+        // Show the modal
+        document.getElementById('editDatasetModal').classList.remove('hidden');
+      } catch (error) {
+        console.error(`Error showing edit modal for "${datasetName}":`, error);
+        showNotification(`Error loading dataset for editing: ${error.message}`, false);
+      }
+    }
+
+    function hideEditModal() {
+      document.getElementById('editDatasetModal').classList.add('hidden');
+    }
+
+    function confirmDeleteDataset(datasetName) {
+      if (confirm(`Are you sure you want to delete the dataset "${datasetName}"?`)) {
+        deleteDatasetHandler(datasetName);
+      }
+    }
+
+    async function deleteDatasetHandler(datasetName) {
+      try {
+        await deleteDataset(datasetName);
+        showNotification(`Dataset "${datasetName}" deleted successfully`);
+
+        // Refresh datasets lists
+        await initializeDatasetsDropdown();
+        await loadDatasetsTable();
+      } catch (error) {
+        showNotification(`Error deleting dataset: ${error.message}`, false);
+      }
+    }
+
+    // Event listeners
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize UI
+      initializeDatasetsDropdown();
+
+      // Browse tab
+      document.getElementById('getDatasetListBtn').addEventListener('click', async () => {
+        try {
+          const datasets = await fetchDatasets();
+          document.getElementById('responseOutput').textContent = JSON.stringify(datasets, null, 2);
+        } catch (error) {
+          document.getElementById('responseOutput').textContent = `Error: ${error.message}`;
+        }
+      });
+
+      document.getElementById('getAllDatasetsBtn').addEventListener('click', async () => {
+        try {
+          const response = await fetch('/api/datasets/all');
+          const data = await response.json();
+          document.getElementById('responseOutput').textContent = JSON.stringify(data, null, 2);
+        } catch (error) {
+          document.getElementById('responseOutput').textContent = `Error: ${error.message}`;
+        }
+      });
+
+      datasetSelector.addEventListener('change', () => {
+        document.getElementById('getSelectedDatasetBtn').disabled = datasetSelector.value === '';
+      });
+
+      document.getElementById('getSelectedDatasetBtn').addEventListener('click', async () => {
+        const selectedDataset = datasetSelector.value;
+        if (!selectedDataset) return;
+
+        try {
+          const dataset = await fetchDataset(selectedDataset);
+          document.getElementById('responseOutput').textContent = JSON.stringify(dataset, null, 2);
+        } catch (error) {
+          document.getElementById('responseOutput').textContent = `Error: ${error.message}`;
+        }
+      });
+
+      // Create tab
+      document.getElementById('createDatasetForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const nameInput = document.getElementById('datasetName');
+        const descriptionInput = document.getElementById('datasetDescription');
+        const eventsInput = document.getElementById('eventsData');
+
+        try {
+          await createDataset(
+            nameInput.value.trim(),
+            descriptionInput.value.trim(),
+            eventsInput.value.trim()
+          );
+
+          showNotification(`Dataset "${nameInput.value}" created successfully`);
+
+          // Clear form
+          nameInput.value = '';
+          descriptionInput.value = '';
+          eventsInput.value = '';
+
+          // Refresh datasets lists
+          await initializeDatasetsDropdown();
+
+          // Switch to browse tab
+          document.querySelector('.tab-link[onclick*="browse-tab"]').click();
+        } catch (error) {
+          showNotification(`Error creating dataset: ${error.message}`, false);
+        }
+      });
+
+      // Manage tab
+      document.getElementById('refreshDatasetsBtn').addEventListener('click', loadDatasetsTable);
+
+      document.getElementById('editDatasetForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const originalName = document.getElementById('editDatasetOriginalName').value;
+        const newName = document.getElementById('editDatasetName').value.trim();
+        const description = document.getElementById('editDatasetDescription').value.trim();
+        const eventsData = document.getElementById('editEventsData').value.trim();
+
+        try {
+          await updateDataset(originalName, newName, description, eventsData);
+          showNotification(`Dataset "${originalName}" updated successfully`);
+
+          // Hide modal
+          hideEditModal();
+
+          // Refresh datasets lists
+          await initializeDatasetsDropdown();
+          await loadDatasetsTable();
+        } catch (error) {
+          showNotification(`Error updating dataset: ${error.message}`, false);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

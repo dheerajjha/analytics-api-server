@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Car Rentals",
+    "filename": "car-rentals.json",
+    "description": "Data related to car rental services"
+  },
+  {
+    "name": "Payments Feature",
+    "filename": "payments-feature.json",
+    "description": "Data related to payment processing features"
+  },
+  {
+    "name": "Checkout Platform",
+    "filename": "checkout-platform.json",
+    "description": "Checkout Platform"
+  }
+]
