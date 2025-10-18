@@ -1,0 +1,253 @@
+{
+  "dataSetName": "Battery Monitor",
+  "data": {
+    "events": [
+      {
+        "name": "battery_monitor_charge_detected",
+        "id": 63693,
+        "uOwnAssetID": "04c81a14-9909-46c7-a834-8d1a2f5a801a",
+        "elkEnabled": false,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "6F8185CF-7DD9",
+            "platform": "ios",
+            "__typename": "AnalyticUUID"
+          },
+          {
+            "uuid": "28A282FB-3AB0",
+            "platform": "android",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "battery_monitor_low_battery_prompt_timedout",
+        "id": 63695,
+        "uOwnAssetID": "04c81a14-9909-46c7-a834-8d1a2f5a801a",
+        "elkEnabled": false,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "B597CB27-7E3A",
+            "platform": "ios",
+            "__typename": "AnalyticUUID"
+          },
+          {
+            "uuid": "DC0D0919-3C32",
+            "platform": "android",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "battery_monitor_low_battery_prompt_shown",
+        "id": 63697,
+        "uOwnAssetID": "04c81a14-9909-46c7-a834-8d1a2f5a801a",
+        "elkEnabled": false,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "EAB10FDC-77DF",
+            "platform": "ios",
+            "__typename": "AnalyticUUID"
+          },
+          {
+            "uuid": "E1A8523F-811C",
+            "platform": "android",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "battery_monitor_low_battery_prompt_dismissed",
+        "id": 63699,
+        "uOwnAssetID": "04c81a14-9909-46c7-a834-8d1a2f5a801a",
+        "elkEnabled": false,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "445E28F4-A55B",
+            "platform": "ios",
+            "__typename": "AnalyticUUID"
+          },
+          {
+            "uuid": "5D416FEB-5A1E",
+            "platform": "android",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "battery_monitor_low_battery_prompt_dismissed_by_charging",
+        "id": 63717,
+        "uOwnAssetID": "04c81a14-9909-46c7-a834-8d1a2f5a801a",
+        "elkEnabled": false,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "AE822DC9-AB70",
+            "platform": "android",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "screen_dimming_start",
+        "id": 71509,
+        "uOwnAssetID": "04c81a14-9909-46c7-a834-8d1a2f5a801a",
+        "elkEnabled": false,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "3806DA9B-A024",
+            "platform": "ios",
+            "__typename": "AnalyticUUID"
+          },
+          {
+            "uuid": "76776565-E98C",
+            "platform": "android",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "screen_dimming_end",
+        "id": 71511,
+        "uOwnAssetID": "04c81a14-9909-46c7-a834-8d1a2f5a801a",
+        "elkEnabled": false,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "3CE62C5F-8605",
+            "platform": "ios",
+            "__typename": "AnalyticUUID"
+          },
+          {
+            "uuid": "770724a2-236c",
+            "platform": "android",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "battery_monitor_disbabled",
+        "id": 71997,
+        "uOwnAssetID": "04c81a14-9909-46c7-a834-8d1a2f5a801a",
+        "elkEnabled": true,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "7407E923-2AEC",
+            "platform": "ios",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "carbon_display_settings_impression",
+        "id": 73551,
+        "uOwnAssetID": "04c81a14-9909-46c7-a834-8d1a2f5a801a",
+        "elkEnabled": false,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "6E442A4C-2A0A",
+            "platform": "ios",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "display_setting_dimming_updated",
+        "id": 73633,
+        "uOwnAssetID": "04c81a14-9909-46c7-a834-8d1a2f5a801a",
+        "elkEnabled": false,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "4ADAD965-0C6B",
+            "platform": "ios",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "carbon_screen_dimming_battery_level_restricted",
+        "id": 73635,
+        "uOwnAssetID": "04c81a14-9909-46c7-a834-8d1a2f5a801a",
+        "elkEnabled": false,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "BA3A1F36-E9C9",
+            "platform": "ios",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "screen_dimming_error",
+        "id": 75061,
+        "uOwnAssetID": "04c81a14-9909-46c7-a834-8d1a2f5a801a",
+        "elkEnabled": false,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "23F9209F-5F40",
+            "platform": "android",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      }
+    ]
+  }
+}

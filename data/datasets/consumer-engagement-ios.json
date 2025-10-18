@@ -1,0 +1,389 @@
+{
+  "dataSetName": "Consumer Engagement iOS",
+  "data": {
+    "events": [
+      {
+        "name": "pass_tracking_route_to_map_fix",
+        "id": 19099,
+        "uOwnAssetID": "275d1f47-4c4b-4954-b9e4-737889e31a30",
+        "elkEnabled": true,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "a4243bdf-b0b0",
+            "platform": "android",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "pass_manage_view_details_list_card",
+        "id": 22181,
+        "uOwnAssetID": "275d1f47-4c4b-4954-b9e4-737889e31a30",
+        "elkEnabled": true,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "9090E580-4908",
+            "platform": "ios",
+            "__typename": "AnalyticUUID"
+          },
+          {
+            "uuid": "e0723ccd-5093",
+            "platform": "android",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "pass_manage_view_help_card",
+        "id": 22183,
+        "uOwnAssetID": "275d1f47-4c4b-4954-b9e4-737889e31a30",
+        "elkEnabled": true,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "3C691C05-F67B",
+            "platform": "ios",
+            "__typename": "AnalyticUUID"
+          },
+          {
+            "uuid": "02951b07-8ec7",
+            "platform": "android",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "pass_manage_view_saving_card",
+        "id": 22187,
+        "uOwnAssetID": "275d1f47-4c4b-4954-b9e4-737889e31a30",
+        "elkEnabled": true,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "F09014B8-C327",
+            "platform": "ios",
+            "__typename": "AnalyticUUID"
+          },
+          {
+            "uuid": "85c400d1-8f10",
+            "platform": "android",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "pass_payment_dialog",
+        "id": 22193,
+        "uOwnAssetID": "275d1f47-4c4b-4954-b9e4-737889e31a30",
+        "elkEnabled": true,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "e606e7cb-0cab",
+            "platform": "android",
+            "__typename": "AnalyticUUID"
+          },
+          {
+            "uuid": "711DD55E-094A",
+            "platform": "ios",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "pass_manage_view_auto_renew_opted_failed",
+        "id": 22207,
+        "uOwnAssetID": "275d1f47-4c4b-4954-b9e4-737889e31a30",
+        "elkEnabled": true,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "f3955edb-a31d",
+            "platform": "android",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "pass_payment_dialog_switch_click",
+        "id": 22211,
+        "uOwnAssetID": "275d1f47-4c4b-4954-b9e4-737889e31a30",
+        "elkEnabled": true,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "4E3CB341-B45B",
+            "platform": "ios",
+            "__typename": "AnalyticUUID"
+          },
+          {
+            "uuid": "cb9010c3-ba63",
+            "platform": "android",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "pass_manage_view_help_click",
+        "id": 22215,
+        "uOwnAssetID": "275d1f47-4c4b-4954-b9e4-737889e31a30",
+        "elkEnabled": true,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "eac40c7a-1446",
+            "platform": "android",
+            "__typename": "AnalyticUUID"
+          },
+          {
+            "uuid": "E678E286-94AF",
+            "platform": "ios",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "pass_manage_view_auto_renew_switch_click",
+        "id": 22217,
+        "uOwnAssetID": "275d1f47-4c4b-4954-b9e4-737889e31a30",
+        "elkEnabled": true,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "2f246bde-79c1",
+            "platform": "android",
+            "__typename": "AnalyticUUID"
+          },
+          {
+            "uuid": "2CA7D9BF-B8AE",
+            "platform": "ios",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "pass_payment_dialog_opt_out_back_click",
+        "id": 22219,
+        "uOwnAssetID": "275d1f47-4c4b-4954-b9e4-737889e31a30",
+        "elkEnabled": true,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "36d77486-8ea1",
+            "platform": "android",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "pass_payment_dialog_opt_out_turn_off_click",
+        "id": 22221,
+        "uOwnAssetID": "275d1f47-4c4b-4954-b9e4-737889e31a30",
+        "elkEnabled": true,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "6fed23d9-a925",
+            "platform": "android",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "pass_payment_dialog_opt_in_back_click",
+        "id": 22225,
+        "uOwnAssetID": "275d1f47-4c4b-4954-b9e4-737889e31a30",
+        "elkEnabled": true,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "1054d1d5-2729",
+            "platform": "android",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "pass_payment_dialog_opt_in_turn_on_click",
+        "id": 22227,
+        "uOwnAssetID": "275d1f47-4c4b-4954-b9e4-737889e31a30",
+        "elkEnabled": true,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "04073a75-e193",
+            "platform": "android",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "pass_manage_view_toast_click",
+        "id": 22231,
+        "uOwnAssetID": "275d1f47-4c4b-4954-b9e4-737889e31a30",
+        "elkEnabled": true,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "24b0440e-fc79",
+            "platform": "android",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "pass_manage_view_details_list_card_click",
+        "id": 22233,
+        "uOwnAssetID": "275d1f47-4c4b-4954-b9e4-737889e31a30",
+        "elkEnabled": true,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "c7d768e5-43ef",
+            "platform": "android",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "pass_manage_view_map_card_click",
+        "id": 22235,
+        "uOwnAssetID": "275d1f47-4c4b-4954-b9e4-737889e31a30",
+        "elkEnabled": true,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "9690df58-c5fb",
+            "platform": "android",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "pass_manage_view_saving_card_click",
+        "id": 22237,
+        "uOwnAssetID": "275d1f47-4c4b-4954-b9e4-737889e31a30",
+        "elkEnabled": true,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "3fab54a4-bdc3",
+            "platform": "android",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "subs_bazaar_purchase",
+        "id": 23805,
+        "uOwnAssetID": "275d1f47-4c4b-4954-b9e4-737889e31a30",
+        "elkEnabled": true,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "58e6f94a-7c9a",
+            "platform": "android",
+            "__typename": "AnalyticUUID"
+          },
+          {
+            "uuid": "1264B15D-DA11",
+            "platform": "ios",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      },
+      {
+        "name": "subs_pause_duration_select",
+        "id": 32921,
+        "uOwnAssetID": "275d1f47-4c4b-4954-b9e4-737889e31a30",
+        "elkEnabled": true,
+        "tier": 3,
+        "failSlaCheck": false,
+        "failTierCheck": false,
+        "tags": [],
+        "analyticUUIDs": [
+          {
+            "uuid": "F96D7D00-A324",
+            "platform": "",
+            "__typename": "AnalyticUUID"
+          }
+        ],
+        "__typename": "EventDetail"
+      }
+    ]
+  }
+}
